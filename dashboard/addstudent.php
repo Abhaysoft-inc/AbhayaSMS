@@ -29,7 +29,7 @@ while ($row = mysqli_fetch_assoc($result)) {
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-<button class="btn btn-secondary mx-5 my-5"><i class="bi bi-arrow-left"></i> Back</button>
+<a href="/" class="btn btn-secondary mx-5 my-5"><i class="bi bi-arrow-left"></i> Back</a>
 
   <div class="container my-5">
     <div class="row justify-content-center">

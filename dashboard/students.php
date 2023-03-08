@@ -47,18 +47,19 @@ $studentResult = mysqli_query($conn, $studentSql);
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        <a class="nav-link " aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Students List</a>
+                        <a class="nav-link active" href="/dashboard/students.php">Students List</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Add Student</a>
+                        <a class="nav-link" href="/dashboard/addstudent.php">Add Student</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    <a href="/" class="btn btn-secondary mx-5 my-5"><i class="bi bi-arrow-left"></i> Back</a>
     <div class="container mt-3">
         <h1>Filter Students by Class</h1>
         <form method="POST">

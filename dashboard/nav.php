@@ -10,10 +10,10 @@
           <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/students.php">Students List</a>
+          <a class="nav-link" href="/dashboard/students.php">Students List</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/addstudent.php">Add Student</a>
+          <a class="nav-link" href="/dashboard/addstudent.php">Add Student</a>
         </li>
       </ul>
     </div>
