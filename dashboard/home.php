@@ -1,3 +1,16 @@
+<?php
+
+include('config.php');
+// Start the session
+session_start();
+
+// Check if the user is not logged in
+if (!isset($_SESSION['username'])) {
+  // User is not logged in, redirect to the login page
+  header("Location: ../");
+  exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -103,19 +103,57 @@
 </body>
 </html>
 
-
 <?php
+// Set up a connection to the database
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "sms";
 
-include('config.php');
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-$user =mysqli_real_escape_string($conn ,$_POST['user']);
-$pass=mysqli_real_escape_string($conn, $_POST['password']);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
 
-$sql = "SELECT * FROM `loginuser` WHERE username = '$user' and password = '$pass'";
-$result = mysqli_query($conn,$sql);
+// Start the session
+session_start();
 
+// Check if the user is logged in
+if (isset($_SESSION['username'])) {
+  // User is logged in, redirect to the dashboard
+  header("Location: dashboard/");
+  exit();
+}
 
+error_reporting(0);
+ini_set('display_errors', 0);
+
+// Get the login credentials from the user
+$username = mysqli_real_escape_string($conn, $_POST['user']);
+$password = mysqli_real_escape_string($conn, $_POST['password']);
+
+// Build the SQL query
+$sql = "SELECT * FROM loginuser WHERE username='$username' AND password='$password'";
+
+// Execute the query and check if there is a match
+$result = $conn->query($sql);
+
+if ($result->num_rows == 1) {
+  session_start(); // Start the session
+  $_SESSION['username'] = $username;
+  // Login successful
+  header('location: dashboard/');
+} else {
+  // Login unsuccessful
+  echo "Invalid login credentials";
+}
+
+// Close the database connection
+$conn->close();
 ?>
+
 
 
 

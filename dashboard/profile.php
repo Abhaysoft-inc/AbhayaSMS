@@ -54,10 +54,11 @@ $feeresult = mysqli_query($conn, $sql3);
         
       </div>
       <div class="col-md-8">
-        <h1>Fee Details</h1>
+        <h1>Fee Details <a href="/payment.php?id=<?php echo $id ?>" class="btn btn-primary">Pay Fee</a></h1>
         <table class="table table-striped mt-3">
           <thead>
             <tr>
+              <th>Select</th>
               <th>Month</th>
               <th>Fee Status</th>
               <th>Amount</th>
@@ -74,6 +75,11 @@ $feeresult = mysqli_query($conn, $sql3);
 
               while($feeRow = mysqli_fetch_assoc($feeResult)) {
   echo "<tr>";
+  echo "<td>";
+      if ($feeRow['status'] == "Unpaid") {
+        echo "<input type='checkbox' name='month[]' value='".$feeRow['month']."'>";
+      }
+  echo "</td>";
   echo "<td>".$feeRow['month']."</td>";
   echo "<td>".$feeRow['status']."</td>";
   echo "<td>".$feeRow['monthly_fee']."</td>";
@@ -91,8 +97,8 @@ $feeresult = mysqli_query($conn, $sql3);
 } else {
   echo "<a class='btn btn-success' href='pay.php?id=".$id."&month=".$feeRow['month']."'>Pay</a>";
 }
+echo "</td>";
 
-  echo "</td>";
   echo "</tr>";
 };
 ?>
