@@ -1,0 +1,17 @@
+on: push
+name: AbhayaSMS
+jobs:
+  FTP-Deploy-Action::
+    name: AbhaySMS
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v2.1.0
+      with:
+        fetch-dapth: 2
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      with: 
+        ftp-server: ${{  }}
+        ftp-username: ${{ }}
+        ftp-password: ${{ }}
